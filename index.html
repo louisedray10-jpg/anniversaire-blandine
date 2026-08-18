@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Joyeux anniversaire Blandine 💙</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+
+font-family:"Quicksand",sans-serif;
+
+background:linear-gradient(180deg,#4b8cff,#9fc4ff);
+
+color:white;
+
+text-align:center;
+
+overflow-x:hidden;
+
+min-height:100vh;
+
+}
+
+.heart{
+
+position:fixed;
+
+top:-50px;
+
+font-size:22px;
+
+pointer-events:none;
+
+animation:fall linear forwards;
+
+}
+
+@keyframes fall{
+
+from{
+
+transform:translateY(-100px);
+
+opacity:1;
+
+}
+
+to{
+
+transform:translateY(120vh);
+
+opacity:0;
+
+}
+
+}
+
+#welcome{
+
+position:fixed;
+
+inset:0;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+background:#2d6df6;
+
+z-index:1000;
+
+}
+
+.gift{
+
+font-size:140px;
+
+cursor:pointer;
+
+animation:bounce 2s infinite;
+
+}
+
+@keyframes bounce{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-20px);
+
+}
+
+}
+
+.welcome-text{
+
+margin-top:20px;
+
+font-size:24px;
+
+}
+
+.container{
+
+padding:25px;
+
+display:none;
+
+animation:fade 1s;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+.intro{
+
+font-family:"Great Vibes",cursive;
+
+font-size:48px;
+
+margin-top:20px;
+
+}
+
+h1{
+
+font-size:46px;
+
+line-height:1.2;
+
+margin-top:15px;
+
+}
+
+.age{
+
+font-size:80px;
+
+font-weight:700;
+
+margin:20px 0;
+
+}
+
+video{
+
+width:100%;
+
+border-radius:25px;
+
+margin-top:20px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.25);
+
+}
+
+.button{
+
+display:block;
+
+text-decoration:none;
+
+background:rgba(255,255,255,.2);
+
+padding:18px;
+
+border-radius:25px;
+
+margin:18px 0;
+
+color:white;
+
+font-size:19px;
+
+backdrop-filter:blur(10px);
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="welcome">
+
+<div class="gift">
+
+🎁
+
+</div>
+
+<p class="welcome-text">
+
+Appuie sur le cadeau 💙
+
+</p>
+
+<audio id="music">
+
+<source src="nastelbom-happy-birthday-495860.mp3">
+
+</audio>
+
+</div>
+
+<div class="container" id="content">
+
+<div class="intro">
+
+Pour Blandine... 💙
+
+</div>
+
+<h1>
+
+JOYEUX ANNIVERSAIRE<br>
+
+MA BOURÉEEEEE !!!!! 🥳
+
+</h1>
+
+<div class="age">
+
+16 ANS
+
+</div>
+
+<video autoplay loop controls playsinline>
+
+<source src="4AFDE65D-8401-467C-9420-A3F0D1C542A7.MOV">
+
+</video>
+
+<a class="button" href="cadeau.html">
+
+🎁 Ton cadeau provisoire avant qu'on se revoie
+
+</a>
+
+<a class="button" href="date.html">
+
+🌳 Idée de p'tit date pour ton anniv
+
+</a>
+
+<a class="button" href="gateau.html">
+
+🎂 Le gâteau que tu veux manger
+
+</a>
+
+</div>
+
+<script>
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML=Math.random()>0.5?"💙":"🤍";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.animationDuration=(4+Math.random()*4)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},8000);
+
+}
+
+setInterval(createHeart,500);
+
+const gift=document.querySelector(".gift");
+
+const music=document.getElementById("music");
+
+gift.addEventListener("click",()=>{
+
+music.play();
+
+setTimeout(()=>{
+
+music.pause();
+
+music.currentTime=0;
+
+document.getElementById("welcome").style.display="none";
+
+document.getElementById("content").style.display="block";
+
+},2000);
+
+});
+
+</script>
+
+</body>
+
+</html>
