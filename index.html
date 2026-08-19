@@ -246,7 +246,6 @@ Appuie sur le cadeau 💙
 </div>
 
 <div class="container" id="content">
-<a id="acc
 
 <div class="intro">
 
@@ -324,6 +323,14 @@ const gift=document.querySelector(".gift");
 
 const music=document.getElementById("music");
 
+if(localStorage.getItem("giftOpened")==="true"){
+
+document.getElementById("welcome").style.display="none";
+
+document.getElementById("content").style.display="block";
+
+}
+
 gift.addEventListener("click",()=>{
 
 music.play();
@@ -334,11 +341,13 @@ music.pause();
 
 music.currentTime=0;
 
+localStorage.setItem("giftOpened","true");
+
 document.getElementById("welcome").style.display="none";
 
 document.getElementById("content").style.display="block";
 
-},12000);
+},2000);
 
 });
 
